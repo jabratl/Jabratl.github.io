@@ -1,46 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
 
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
 
     <meta name="description"
-          content="Read translated novels online with a clean and comfortable reading experience.">
+          content="Jabratl — Read translated novels online in a clean and comfortable reading environment.">
 
     <meta name="robots"
           content="index, follow">
 
-    <title>NovelVerse — Read Translated Novels</title>
+    <meta name="theme-color"
+          content="#111111">
 
-    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Jabratl — Read Translated Novels</title>
+
+    <link rel="stylesheet"
+          href="assets/css/style.css">
+
 </head>
+
 
 <body>
 
-<header class="site-header">
+<header class="header">
 
     <div class="container header-inner">
 
-        <a href="index.html" class="logo">
-            NovelVerse
+        <a href="index.html"
+           class="logo">
+
+            Jabratl
+
         </a>
 
-        <nav class="nav">
 
-            <a href="index.html">Home</a>
+        <nav class="navigation">
 
-            <a href="novels.html">Novels</a>
+            <a href="index.html">
+                Home
+            </a>
 
-            <a href="latest.html">Latest</a>
+            <a href="novels.html">
+                Novels
+            </a>
 
-            <a href="genres.html">Genres</a>
+            <a href="latest.html">
+                Latest
+            </a>
 
-            <button id="themeToggle"
-                    class="theme-btn"
-                    aria-label="Toggle dark mode">
+            <a href="genres.html">
+                Genres
+            </a>
+
+            <a href="search.html">
+                Search
+            </a>
+
+            <button
+                id="themeToggle"
+                class="theme-toggle"
+                aria-label="Toggle dark mode">
+
                 🌙
+
             </button>
 
         </nav>
@@ -52,36 +79,52 @@
 
 <main>
 
+
+<!-- HERO -->
+
 <section class="hero">
 
-    <div class="container hero-content">
+    <div class="container hero-container">
 
-        <div>
+        <div class="hero-text">
 
-            <span class="hero-label">
-                TRANSLATED NOVELS
-            </span>
+            <div class="hero-tag">
+                TRANSLATED FICTION
+            </div>
+
 
             <h1>
-                Your next story<br>
-                starts here.
+
+                Discover your next
+                <span>great story.</span>
+
             </h1>
 
+
             <p>
-                Read translated novels in a clean,
-                comfortable and mobile-friendly reader.
+
+                Read translated novels with a
+                clean, simple and comfortable
+                reading experience.
+
             </p>
+
 
             <div class="hero-buttons">
 
                 <a href="novels.html"
-                   class="btn primary">
+                   class="button button-primary">
+
                     Browse Novels
+
                 </a>
 
+
                 <a href="latest.html"
-                   class="btn secondary">
+                   class="button button-outline">
+
                     Latest Chapters
+
                 </a>
 
             </div>
@@ -93,17 +136,20 @@
 </section>
 
 
+
+<!-- FEATURED NOVELS -->
+
 <section class="section">
 
     <div class="container">
 
-        <div class="section-heading">
+        <div class="section-header">
 
             <div>
 
-                <span class="eyebrow">
+                <div class="small-title">
                     LIBRARY
-                </span>
+                </div>
 
                 <h2>
                     Featured Novels
@@ -111,38 +157,68 @@
 
             </div>
 
-            <a href="novels.html">
+
+            <a href="novels.html"
+               class="view-all">
+
                 View All →
+
             </a>
 
         </div>
 
 
+
         <div class="novel-grid">
+
+
+            <!-- NOVEL 1 -->
 
             <article class="novel-card">
 
-                <div class="novel-cover">
-                    <span>Novel<br>Cover</span>
-                </div>
+                <a href="novels/absolute-regression/index.html"
+                   class="cover">
 
-                <div class="novel-info">
+                    <div class="cover-placeholder">
 
-                    <span class="badge">
-                        Ongoing
-                    </span>
+                        <span>
+                            ABSOLUTE
+                        </span>
+
+                        <strong>
+                            REGRESSION
+                        </strong>
+
+                    </div>
+
+                </a>
+
+
+                <div class="novel-content">
+
+                    <div class="status">
+                        ONGOING
+                    </div>
+
 
                     <h3>
                         Absolute Regression
                     </h3>
 
+
                     <p>
+
                         A mysterious journey begins
                         when the past returns.
+
                     </p>
 
-                    <a href="novels/absolute-regression/index.html">
+
+                    <a href="novels/absolute-regression/index.html"
+                       class="read-link">
+
                         Read Novel →
+
                     </a>
 
                 </div>
@@ -150,28 +226,54 @@
             </article>
 
 
+
+            <!-- NOVEL 2 -->
+
             <article class="novel-card">
 
-                <div class="novel-cover">
-                    <span>Novel<br>Cover</span>
-                </div>
+                <a href="#"
+                   class="cover">
 
-                <div class="novel-info">
+                    <div class="cover-placeholder">
 
-                    <span class="badge">
-                        Ongoing
-                    </span>
+                        <span>
+                            YOUR
+                        </span>
+
+                        <strong>
+                            NOVEL
+                        </strong>
+
+                    </div>
+
+                </a>
+
+
+                <div class="novel-content">
+
+                    <div class="status">
+                        ONGOING
+                    </div>
+
 
                     <h3>
                         Your Second Novel
                     </h3>
 
+
                     <p>
-                        Add your novel description here.
+
+                        Your novel description
+                        will appear here.
+
                     </p>
 
-                    <a href="#">
+
+                    <a href="#"
+                       class="read-link">
+
                         Read Novel →
+
                     </a>
 
                 </div>
@@ -179,28 +281,54 @@
             </article>
 
 
+
+            <!-- NOVEL 3 -->
+
             <article class="novel-card">
 
-                <div class="novel-cover">
-                    <span>Novel<br>Cover</span>
-                </div>
+                <a href="#"
+                   class="cover">
 
-                <div class="novel-info">
+                    <div class="cover-placeholder">
 
-                    <span class="badge">
-                        Completed
-                    </span>
+                        <span>
+                            YOUR
+                        </span>
+
+                        <strong>
+                            NOVEL
+                        </strong>
+
+                    </div>
+
+                </a>
+
+
+                <div class="novel-content">
+
+                    <div class="status">
+                        COMPLETED
+                    </div>
+
 
                     <h3>
                         Your Third Novel
                     </h3>
 
+
                     <p>
-                        Add your novel description here.
+
+                        Your novel description
+                        will appear here.
+
                     </p>
 
-                    <a href="#">
+
+                    <a href="#"
+                       class="read-link">
+
                         Read Novel →
+
                     </a>
 
                 </div>
@@ -214,17 +342,20 @@
 </section>
 
 
-<section class="section latest-section">
+
+<!-- LATEST CHAPTERS -->
+
+<section class="latest-section">
 
     <div class="container">
 
-        <div class="section-heading">
+        <div class="section-header">
 
             <div>
 
-                <span class="eyebrow">
+                <div class="small-title">
                     UPDATES
-                </span>
+                </div>
 
                 <h2>
                     Latest Chapters
@@ -232,19 +363,26 @@
 
             </div>
 
-            <a href="latest.html">
+
+            <a href="latest.html"
+               class="view-all">
+
                 All Updates →
+
             </a>
 
         </div>
 
 
+
         <div class="chapter-list">
 
+
             <a href="#"
-               class="chapter-row">
+               class="chapter">
 
                 <div>
+
                     <strong>
                         Absolute Regression
                     </strong>
@@ -252,19 +390,29 @@
                     <span>
                         Chapter 3
                     </span>
+
                 </div>
 
-                <span>
-                    Read →
-                </span>
+
+                <div class="chapter-right">
+
+                    <span>
+                        New
+                    </span>
+
+                    →
+
+                </div>
 
             </a>
 
 
+
             <a href="#"
-               class="chapter-row">
+               class="chapter">
 
                 <div>
+
                     <strong>
                         Absolute Regression
                     </strong>
@@ -272,19 +420,29 @@
                     <span>
                         Chapter 2
                     </span>
+
                 </div>
 
-                <span>
-                    Read →
-                </span>
+
+                <div class="chapter-right">
+
+                    <span>
+                        New
+                    </span>
+
+                    →
+
+                </div>
 
             </a>
 
 
+
             <a href="#"
-               class="chapter-row">
+               class="chapter">
 
                 <div>
+
                     <strong>
                         Absolute Regression
                     </strong>
@@ -292,11 +450,15 @@
                     <span>
                         Chapter 1
                     </span>
+
                 </div>
 
-                <span>
-                    Read →
-                </span>
+
+                <div class="chapter-right">
+
+                    →
+
+                </div>
 
             </a>
 
@@ -306,27 +468,95 @@
 
 </section>
 
-</main>
 
 
-<footer class="footer">
+<!-- ABOUT -->
 
-    <div class="container footer-inner">
+<section class="about-section">
+
+    <div class="container about-container">
 
         <div>
 
-            <strong>
-                NovelVerse
-            </strong>
+            <div class="small-title">
+                ABOUT JABRATL
+            </div>
+
+            <h2>
+                Stories worth spending
+                time with.
+            </h2>
+
+        </div>
+
+
+        <p>
+
+            Jabratl is a reading platform
+            designed to make translated
+            fiction easy and comfortable
+            to discover and read.
+
+        </p>
+
+    </div>
+
+</section>
+
+
+</main>
+
+
+
+<!-- FOOTER -->
+
+<footer class="footer">
+
+    <div class="container footer-top">
+
+
+        <div class="footer-brand">
+
+            <div class="logo">
+                Jabratl
+            </div>
 
             <p>
-                A clean home for translated fiction.
+                Translated stories,
+                comfortable reading.
             </p>
 
         </div>
 
 
-        <div class="footer-links">
+
+        <div class="footer-column">
+
+            <h4>
+                Explore
+            </h4>
+
+            <a href="novels.html">
+                Novels
+            </a>
+
+            <a href="latest.html">
+                Latest
+            </a>
+
+            <a href="genres.html">
+                Genres
+            </a>
+
+        </div>
+
+
+
+        <div class="footer-column">
+
+            <h4>
+                Information
+            </h4>
 
             <a href="about.html">
                 About
@@ -340,24 +570,46 @@
                 Privacy
             </a>
 
+        </div>
+
+
+
+        <div class="footer-column">
+
+            <h4>
+                Legal
+            </h4>
+
+            <a href="terms.html">
+                Terms
+            </a>
+
             <a href="dmca.html">
                 DMCA
             </a>
 
+            <a href="disclaimer.html">
+                Disclaimer
+            </a>
+
         </div>
+
 
     </div>
 
-    <div class="container copyright">
 
-        © 2026 NovelVerse. All rights reserved.
+    <div class="container footer-bottom">
+
+        © 2026 Jabratl. All rights reserved.
 
     </div>
 
 </footer>
 
 
+
 <script src="assets/js/main.js"></script>
 
 </body>
+
 </html>
