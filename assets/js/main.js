@@ -1,35 +1,47 @@
 const themeToggle =
     document.getElementById("themeToggle");
 
+
 const savedTheme =
-    localStorage.getItem("theme");
+    localStorage.getItem("jabratl-theme");
+
 
 if (savedTheme === "dark") {
+
     document.body.classList.add("dark");
 
     if (themeToggle) {
+
         themeToggle.textContent = "☀️";
+
     }
+
 }
 
 
 if (themeToggle) {
 
-    themeToggle.addEventListener("click", () => {
+    themeToggle.addEventListener(
+        "click",
+        function () {
 
-        document.body.classList.toggle("dark");
+            document.body.classList.toggle("dark");
 
-        const dark =
-            document.body.classList.contains("dark");
 
-        localStorage.setItem(
-            "theme",
-            dark ? "dark" : "light"
-        );
+            const isDark =
+                document.body.classList.contains("dark");
 
-        themeToggle.textContent =
-            dark ? "☀️" : "🌙";
 
-    });
+            localStorage.setItem(
+                "jabratl-theme",
+                isDark ? "dark" : "light"
+            );
+
+
+            themeToggle.textContent =
+                isDark ? "☀️" : "🌙";
+
+        }
+    );
 
 }
