@@ -1,615 +1,168 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
-    <meta charset="UTF-8">
-
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-
-    <meta name="description"
-          content="Jabratl — Read translated novels online in a clean and comfortable reading environment.">
-
-    <meta name="robots"
-          content="index, follow">
-
-    <meta name="theme-color"
-          content="#111111">
-
-    <title>Jabratl — Read Translated Novels</title>
-
-    <link rel="stylesheet"
-          href="assets/css/style.css">
-
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Jabra: I build tools I got tired of living without</title>
+<meta name="description" content="Jabra's corner of the internet: Thazir, a private Android browser, Bulk Replace, a bulk find-and-replace for Google Docs, and whatever I build next.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%23ff6b35'/%3E%3Cpath d='M28 30h40M48 30v44' stroke='white' stroke-width='12' stroke-linecap='round'/%3E%3C/svg%3E">
+<style>
+:root{--paper:#fff4dc;--card:#fffdf6;--ink:#17130f;--mut:#5c5346;--or:#ff6b35;--tl:#00a99d;--yl:#ffd23f;--pk:#ff8fab;--sh:6px 6px 0 var(--ink)}
+@media(prefers-color-scheme:dark){:root{--paper:#15120e;--card:#1f1a14;--ink:#f6ead2;--mut:#b8ab94;--or:#ff7a45;--tl:#2dd4c4;--yl:#ffd23f;--pk:#ff8fab;--sh:6px 6px 0 #000}}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.6 "Trebuchet MS",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;padding:env(safe-area-inset-top) 0 env(safe-area-inset-bottom);
+background-image:radial-gradient(var(--ink) 1px,transparent 1.2px);background-size:26px 26px;background-position:0 0;background-attachment:local}
+body::before{content:"";position:fixed;inset:0;background:var(--paper);opacity:.93;z-index:-1}
+a{color:inherit}
+.w{max-width:1000px;margin:0 auto;padding:0 20px}
+.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace}
+.box{background:var(--card);border:3px solid var(--ink);border-radius:16px;box-shadow:var(--sh)}
+nav{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding:22px 0 8px}
+.brand{font-weight:900;font-size:24px;text-decoration:none;background:var(--yl);color:#17130f;border:3px solid var(--ink);border-radius:12px;padding:2px 14px;box-shadow:4px 4px 0 var(--ink);transform:rotate(-2deg);display:inline-block}
+nav .links{display:flex;gap:8px;flex-wrap:wrap}
+nav .links a{font-weight:700;font-size:15px;text-decoration:none;border:2.5px solid var(--ink);border-radius:999px;padding:3px 14px;background:var(--card)}
+nav .links a:hover{background:var(--or);color:#17130f}
+.hero{padding:44px 0 26px}
+.sticker{display:inline-block;font-size:13px;font-weight:700;background:var(--tl);color:#06201e;border:2.5px solid var(--ink);border-radius:999px;padding:3px 14px;margin-bottom:18px;transform:rotate(-1.5deg)}
+h1{font-size:clamp(40px,9vw,78px);line-height:1;margin:0 0 20px;font-weight:900;letter-spacing:-.035em}
+h1 mark{background:var(--yl);color:#17130f;padding:0 .12em;border-radius:.12em;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+h1 .u{color:var(--or)}
+.lead{font-size:clamp(18px,3.6vw,22px);color:var(--mut);max-width:680px;margin:0 0 28px}
+.lead b{color:var(--ink)}
+.btns{display:flex;gap:14px;flex-wrap:wrap}
+.b{display:inline-block;padding:13px 24px;font-weight:800;text-decoration:none;border:3px solid var(--ink);border-radius:14px;box-shadow:4px 4px 0 var(--ink);transition:transform .12s,box-shadow .12s}
+.b:hover{transform:translate(3px,3px);box-shadow:1px 1px 0 var(--ink)}
+.b.p{background:var(--or);color:#17130f}
+.b.s{background:var(--card)}
+section{padding:46px 0 6px}
+h2{font-size:clamp(26px,5vw,36px);margin:0 0 22px;font-weight:900;letter-spacing:-.02em}
+h2 small{font-size:14px;font-weight:700;margin-left:8px;color:var(--tl)}
+.proj{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:26px}
+.card{padding:0;display:flex;flex-direction:column;overflow:hidden;transition:transform .15s}
+.card:hover{transform:translate(-2px,-2px)}
+.card .top{padding:14px 18px;border-bottom:3px solid var(--ink);display:flex;align-items:center;gap:14px}
+.card.t1 .top{background:var(--or)}
+.card.t2 .top{background:var(--tl)}
+.card .top h3{margin:0;font-size:26px;font-weight:900;color:#17130f;letter-spacing:-.02em}
+.card .top .tags{font-size:12px;font-weight:700;color:#17130f;opacity:.8}
+.ic{width:58px;height:58px;flex:none;border:3px solid var(--ink);border-radius:15px;background:#fff}
+.card .bd{padding:18px 20px 20px;display:flex;flex-direction:column;flex:1}
+.card p{margin:0 0 18px;color:var(--mut);font-size:16px}
+.row{margin-top:auto;display:flex;flex-wrap:wrap;gap:8px}
+.row a{font-weight:800;font-size:14px;text-decoration:none;border:2.5px solid var(--ink);border-radius:10px;padding:5px 12px;background:var(--paper)}
+.row a:hover{background:var(--yl);color:#17130f}
+.soon{border-style:dashed;box-shadow:none;background:transparent;padding:24px;text-align:center;justify-content:center;align-items:center}
+.soon h3{margin:0 0 6px;font-size:24px;font-weight:900}
+.soon p{margin:0;color:var(--mut)}
+.rules{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
+.rule{padding:16px 18px}
+.rule:nth-child(1){background:var(--yl);color:#17130f}
+.rule:nth-child(2){background:var(--pk);color:#17130f}
+.rule:nth-child(3){background:var(--tl);color:#06201e}
+.rule:nth-child(4){background:var(--or);color:#17130f}
+.rule b{display:block;font-size:19px;font-weight:900;margin-bottom:4px}
+.rule span{font-size:15px}
+.priv{padding:20px 22px;border-left-width:12px;border-left-color:var(--tl)}
+.priv p{margin:0 0 10px;color:var(--mut)}.priv p:last-child{margin:0}
+.priv b{color:var(--ink)}
+.priv a{font-weight:800;text-decoration-thickness:2px;text-decoration-color:var(--or)}
+.contact{padding:24px 26px;background:var(--yl);color:#17130f}
+.contact p{margin:0;font-size:19px;font-weight:600}
+.contact a{font-weight:900;text-decoration-thickness:3px;text-decoration-color:var(--or)}
+footer{margin-top:54px;border-top:3px solid var(--ink);padding:22px 0 44px;font-size:14px;font-weight:700}
+footer .w{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+@media(prefers-reduced-motion:reduce){.b,.card{transition:none}}
+</style>
 </head>
-
-
 <body>
+<div class="w">
+<nav>
+  <a class="brand" href="#top">jabra.</a>
+  <div class="links"><a href="#projects">Projects</a><a href="#how">How I build</a><a href="#privacy">Privacy</a><a href="#contact">Contact</a></div>
+</nav>
 
-<header class="header">
-
-    <div class="container header-inner">
-
-        <a href="index.html"
-           class="logo">
-
-            Jabratl
-
-        </a>
-
-
-        <nav class="navigation">
-
-            <a href="index.html">
-                Home
-            </a>
-
-            <a href="novels.html">
-                Novels
-            </a>
-
-            <a href="latest.html">
-                Latest
-            </a>
-
-            <a href="genres.html">
-                Genres
-            </a>
-
-            <a href="search.html">
-                Search
-            </a>
-
-            <button
-                id="themeToggle"
-                class="theme-toggle"
-                aria-label="Toggle dark mode">
-
-                🌙
-
-            </button>
-
-        </nav>
-
-    </div>
-
+<header class="hero" id="top">
+  <span class="sticker mono">&#9679; open for ideas</span>
+  <h1>I build tools I got tired of <mark>living without</mark><span class="u">.</span></h1>
+  <p class="lead">Browsers, bulk editors, small utilities. If something is slow, clunky or full of ads, I would rather <b>fix it myself</b> than complain. Everything here is <b>free</b> and keeps your data <b>on your own device</b>.</p>
+  <div class="btns">
+    <a class="b p" href="#projects">See what I made</a>
+    <a class="b s" href="https://github.com/jabratl">GitHub &#8599;</a>
+  </div>
 </header>
 
+<section id="projects">
+  <h2>Projects<small class="mono">// shipped</small></h2>
+  <div class="proj">
 
-<main>
-
-
-<!-- HERO -->
-
-<section class="hero">
-
-    <div class="container hero-container">
-
-        <div class="hero-text">
-
-            <div class="hero-tag">
-                TRANSLATED FICTION
-            </div>
-
-
-            <h1>
-
-                Discover your next
-                <span>great story.</span>
-
-            </h1>
-
-
-            <p>
-
-                Read translated novels with a
-                clean, simple and comfortable
-                reading experience.
-
-            </p>
-
-
-            <div class="hero-buttons">
-
-                <a href="novels.html"
-                   class="button button-primary">
-
-                    Browse Novels
-
-                </a>
-
-
-                <a href="latest.html"
-                   class="button button-outline">
-
-                    Latest Chapters
-
-                </a>
-
-            </div>
-
+    <article class="box card t1">
+      <div class="top">
+        <svg class="ic" viewBox="0 0 100 100" role="img" aria-label="Thazir icon"><rect width="100" height="100" rx="22" fill="#1b1630"/><path d="M28 30h40M48 30v46" stroke="#fff" stroke-width="13" stroke-linecap="round" fill="none"/><circle cx="73" cy="72" r="9" fill="#f2708a"/></svg>
+        <div><h3>Thazir</h3><div class="tags mono">android &middot; browser</div></div>
+      </div>
+      <div class="bd">
+        <p>A private, fast browser with its own multi-part download manager, an encrypted Vault, a password manager with 2FA codes, content blocking and optional backup to your own Google Drive.</p>
+        <div class="row">
+          <a href="https://jabratl.github.io/thazir/">Open page</a>
+          <a href="https://github.com/jabratl/Thazir/releases/latest">Download</a>
+          <a href="https://jabratl.github.io/thazir/thazir-privacy.html">Privacy</a>
         </div>
+      </div>
+    </article>
 
-    </div>
+    <article class="box card t2">
+      <div class="top">
+        <svg class="ic" viewBox="0 0 100 100" role="img" aria-label="Bulk Replace icon"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2563eb"/><stop offset="1" stop-color="#7c3aed"/></linearGradient></defs><rect width="100" height="100" rx="22" fill="url(#g)"/><rect x="18" y="24" width="36" height="8" rx="4" fill="#fff" fill-opacity=".6"/><rect x="58" y="22" width="24" height="12" rx="5" fill="#fff"/><rect x="18" y="42" width="64" height="8" rx="4" fill="#fff" fill-opacity=".6"/><rect x="18" y="60" width="50" height="8" rx="4" fill="#fff" fill-opacity=".6"/><rect x="18" y="77" width="52" height="6" rx="3" fill="#fff"/><path d="M68 70l16 10-16 10z" fill="#fff"/></svg>
+        <div><h3>Bulk Replace</h3><div class="tags mono">web &middot; google docs</div></div>
+      </div>
+      <div class="bd">
+        <p>Fix a wrong name or term across hundreds of Google Docs in one run. Pick your folders, preview every change, then apply. Built for translated novels with long chapter lists, works for any big set of docs.</p>
+        <div class="row">
+          <a href="https://jabratl.github.io/bulk-replace/">Open tool</a>
+          <a href="https://jabratl.github.io/bulk-replace/privacy.html">Privacy</a>
+        </div>
+      </div>
+    </article>
 
+    <article class="box card soon">
+      <h3>More coming&hellip;</h3>
+      <p>There is always something half-built on my machine. It lands here when it is ready.</p>
+    </article>
+
+  </div>
 </section>
 
-
-
-<!-- FEATURED NOVELS -->
-
-<section class="section">
-
-    <div class="container">
-
-        <div class="section-header">
-
-            <div>
-
-                <div class="small-title">
-                    LIBRARY
-                </div>
-
-                <h2>
-                    Featured Novels
-                </h2>
-
-            </div>
-
-
-            <a href="novels.html"
-               class="view-all">
-
-                View All →
-
-            </a>
-
-        </div>
-
-
-
-        <div class="novel-grid">
-
-
-            <!-- NOVEL 1 -->
-
-            <article class="novel-card">
-
-                <a href="novels/absolute-regression/index.html"
-                   class="cover">
-
-                    <div class="cover-placeholder">
-
-                        <span>
-                            ABSOLUTE
-                        </span>
-
-                        <strong>
-                            REGRESSION
-                        </strong>
-
-                    </div>
-
-                </a>
-
-
-                <div class="novel-content">
-
-                    <div class="status">
-                        ONGOING
-                    </div>
-
-
-                    <h3>
-                        Absolute Regression
-                    </h3>
-
-
-                    <p>
-
-                        A mysterious journey begins
-                        when the past returns.
-
-                    </p>
-
-
-                    <a href="novels/absolute-regression/index.html"
-                       class="read-link">
-
-                        Read Novel →
-
-                    </a>
-
-                </div>
-
-            </article>
-
-
-
-            <!-- NOVEL 2 -->
-
-            <article class="novel-card">
-
-                <a href="#"
-                   class="cover">
-
-                    <div class="cover-placeholder">
-
-                        <span>
-                            YOUR
-                        </span>
-
-                        <strong>
-                            NOVEL
-                        </strong>
-
-                    </div>
-
-                </a>
-
-
-                <div class="novel-content">
-
-                    <div class="status">
-                        ONGOING
-                    </div>
-
-
-                    <h3>
-                        Your Second Novel
-                    </h3>
-
-
-                    <p>
-
-                        Your novel description
-                        will appear here.
-
-                    </p>
-
-
-                    <a href="#"
-                       class="read-link">
-
-                        Read Novel →
-
-                    </a>
-
-                </div>
-
-            </article>
-
-
-
-            <!-- NOVEL 3 -->
-
-            <article class="novel-card">
-
-                <a href="#"
-                   class="cover">
-
-                    <div class="cover-placeholder">
-
-                        <span>
-                            YOUR
-                        </span>
-
-                        <strong>
-                            NOVEL
-                        </strong>
-
-                    </div>
-
-                </a>
-
-
-                <div class="novel-content">
-
-                    <div class="status">
-                        COMPLETED
-                    </div>
-
-
-                    <h3>
-                        Your Third Novel
-                    </h3>
-
-
-                    <p>
-
-                        Your novel description
-                        will appear here.
-
-                    </p>
-
-
-                    <a href="#"
-                       class="read-link">
-
-                        Read Novel →
-
-                    </a>
-
-                </div>
-
-            </article>
-
-        </div>
-
-    </div>
-
+<section id="how">
+  <h2>How I build<small class="mono">// the rules</small></h2>
+  <div class="rules">
+    <div class="box rule"><b>Your data stays yours</b><span>No servers collecting your stuff. Processing happens on your device.</span></div>
+    <div class="box rule"><b>No trackers, no ads</b><span>I do not add analytics or ad networks to my own apps.</span></div>
+    <div class="box rule"><b>Free, for real</b><span>No paywall, no account to create just to try something.</span></div>
+    <div class="box rule"><b>Ask for less</b><span>If an app needs Google access, I ask for the smallest permission that works.</span></div>
+  </div>
 </section>
 
-
-
-<!-- LATEST CHAPTERS -->
-
-<section class="latest-section">
-
-    <div class="container">
-
-        <div class="section-header">
-
-            <div>
-
-                <div class="small-title">
-                    UPDATES
-                </div>
-
-                <h2>
-                    Latest Chapters
-                </h2>
-
-            </div>
-
-
-            <a href="latest.html"
-               class="view-all">
-
-                All Updates →
-
-            </a>
-
-        </div>
-
-
-
-        <div class="chapter-list">
-
-
-            <a href="#"
-               class="chapter">
-
-                <div>
-
-                    <strong>
-                        Absolute Regression
-                    </strong>
-
-                    <span>
-                        Chapter 3
-                    </span>
-
-                </div>
-
-
-                <div class="chapter-right">
-
-                    <span>
-                        New
-                    </span>
-
-                    →
-
-                </div>
-
-            </a>
-
-
-
-            <a href="#"
-               class="chapter">
-
-                <div>
-
-                    <strong>
-                        Absolute Regression
-                    </strong>
-
-                    <span>
-                        Chapter 2
-                    </span>
-
-                </div>
-
-
-                <div class="chapter-right">
-
-                    <span>
-                        New
-                    </span>
-
-                    →
-
-                </div>
-
-            </a>
-
-
-
-            <a href="#"
-               class="chapter">
-
-                <div>
-
-                    <strong>
-                        Absolute Regression
-                    </strong>
-
-                    <span>
-                        Chapter 1
-                    </span>
-
-                </div>
-
-
-                <div class="chapter-right">
-
-                    →
-
-                </div>
-
-            </a>
-
-        </div>
-
-    </div>
-
+<section id="privacy">
+  <h2>Privacy<small class="mono">// the short version</small></h2>
+  <div class="box priv">
+    <p>Some of my apps offer <b>Sign in with Google</b>. It is always optional or used only for the one job you asked for. Thazir uses it for backup to its own private folder in your Drive, and Bulk Replace uses it to read and edit the Google Docs you choose.</p>
+    <p>I do not sell, share or use your Google data for ads or to train AI. Full policies: <a href="https://jabratl.github.io/thazir/thazir-privacy.html">Thazir</a> &middot; <a href="https://jabratl.github.io/bulk-replace/privacy.html">Bulk Replace</a>. You can remove any app's access at <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>.</p>
+  </div>
 </section>
 
-
-
-<!-- ABOUT -->
-
-<section class="about-section">
-
-    <div class="container about-container">
-
-        <div>
-
-            <div class="small-title">
-                ABOUT JABRATL
-            </div>
-
-            <h2>
-                Stories worth spending
-                time with.
-            </h2>
-
-        </div>
-
-
-        <p>
-
-            Jabratl is a reading platform
-            designed to make translated
-            fiction easy and comfortable
-            to discover and read.
-
-        </p>
-
-    </div>
-
+<section id="contact">
+  <div class="box contact">
+    <p>Found a bug or have an idea for a tool? Email <a href="mailto:YOUR_EMAIL@gmail.com">YOUR_EMAIL@gmail.com</a> or open an issue on <a href="https://github.com/jabratl">GitHub</a>.</p>
+  </div>
 </section>
+</div>
 
-
-</main>
-
-
-
-<!-- FOOTER -->
-
-<footer class="footer">
-
-    <div class="container footer-top">
-
-
-        <div class="footer-brand">
-
-            <div class="logo">
-                Jabratl
-            </div>
-
-            <p>
-                Translated stories,
-                comfortable reading.
-            </p>
-
-        </div>
-
-
-
-        <div class="footer-column">
-
-            <h4>
-                Explore
-            </h4>
-
-            <a href="novels.html">
-                Novels
-            </a>
-
-            <a href="latest.html">
-                Latest
-            </a>
-
-            <a href="genres.html">
-                Genres
-            </a>
-
-        </div>
-
-
-
-        <div class="footer-column">
-
-            <h4>
-                Information
-            </h4>
-
-            <a href="about.html">
-                About
-            </a>
-
-            <a href="contact.html">
-                Contact
-            </a>
-
-            <a href="privacy.html">
-                Privacy
-            </a>
-
-        </div>
-
-
-
-        <div class="footer-column">
-
-            <h4>
-                Legal
-            </h4>
-
-            <a href="terms.html">
-                Terms
-            </a>
-
-            <a href="dmca.html">
-                DMCA
-            </a>
-
-            <a href="disclaimer.html">
-                Disclaimer
-            </a>
-
-        </div>
-
-
-    </div>
-
-
-    <div class="container footer-bottom">
-
-        © 2026 Jabratl. All rights reserved.
-
-    </div>
-
+<footer>
+  <div class="w">
+    <span>&copy; 2026 Jabra</span>
+    <span class="mono">made by hand, on purpose</span>
+  </div>
 </footer>
-
-
-
-<script src="assets/js/main.js"></script>
-
 </body>
-
 </html>
